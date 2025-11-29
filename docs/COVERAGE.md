@@ -131,7 +131,18 @@ sudo dnf install pkg-config openssl-devel
 ### Performance Tips
 
 - Use `cargo-llvm-cov` for quick checks
+```bash
+# to check for limited test functions in development using cargo-llvm-cov
+cargo llvm-cov test <TEST Fn NAME> --html --open --output-dir ./coverage/
+```
+
 - Use `cargo-tarpaulin` for detailed analysis
+```bash
+# to check for detailed analysis on limited number of files in development 
+# using cargo-tarpaulin
+cargo tarpaulin --include-files <PATH TO FILE> --out Html --output-dir ./coverage/
+```
+
 - Set `--test-threads=1` for deterministic results
 - Use `--timeout 300s` for long-running tests
 
